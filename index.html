@@ -311,6 +311,24 @@
         // quad.rotation += 0.01;
         quad.shader.uniforms.time += 0.01;
       });
+
+      app.stage.interactive = true;
+      const newQuad = new PIXI.Mesh(geometry, shader);
+      app.stage.on("pointermove", movePointer);
+
+      function movePointer(event) {
+        let pos = event.data.global;
+
+        // newQuad.position.set(pos.x, pos.y);
+        // newQuad.scale.set(4);
+        quad.shader.uniforms.time += 0.03;
+
+        // app.stage.addChild(newQuad);
+      }
+
+      // app.stage.on("pointermove", (event) => {
+      //   quad.shader.uniforms.mouse.copyFrom(event.global);
+      // });
     </script>
   </body>
 </html>
